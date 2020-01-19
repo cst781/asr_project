@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54c0309f-c7b6-497e-953b-6b7b306ae092" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/02-feature-extraction/mfcc.py" beforeDir="false" afterPath="$PROJECT_DIR$/02-feature-extraction/mfcc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/02-feature-extraction/mfcc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="110" column="37" lean-forward="true" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+            <state relative-caret-position="360">
+              <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -40,18 +40,19 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="489" />
+    <option name="x" value="285" />
     <option name="y" value="23" />
     <option name="width" value="1155" />
     <option name="height" value="827" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -84,10 +85,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="489" y="23" width="1155" height="827" extended-state="0" />
+    <frame x="285" y="23" width="1155" height="827" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989858" visible="true" weight="0.24955909" />
-      <window_info id="Structure" order="1" sideWeight="0.5010142" side_tool="true" visible="true" weight="0.24955909" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4969574" visible="true" weight="0.24955909" />
+      <window_info id="Structure" order="1" sideWeight="0.5030426" side_tool="true" visible="true" weight="0.24955909" />
       <window_info id="Favorites" order="2" sideWeight="0.5010142" side_tool="true" weight="0.24955909" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -126,8 +127,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/02-feature-extraction/mfcc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="110" column="37" lean-forward="true" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+        <state relative-caret-position="360">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
