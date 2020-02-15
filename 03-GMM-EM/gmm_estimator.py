@@ -14,18 +14,22 @@ class GMM:
         self.dim = D
         self.K = K
         #Kmeans Initial
-        self.mu = []
-        self.sigma = [] 
+        self.mu, self.sigma, self.pi = self.kmeans_initial()
+
+    def kmeans_initial(self):
+        mu = []
+        sigma = []
         data = read_all_data('train/feats.scp')
-        (centroids, labels) = vq.kmeans2(data, K, minit="points", iter=100)
+        (centroids, labels) = vq.kmeans2(data, self.K, minit="points", iter=100)
         clusters = [[] for i in range(self.K)]
         for (l,d) in zip(labels,data):
             clusters[l].append(d)
 
         for cluster in clusters:
-            self.mu.append(np.mean(cluster, axis=0))
-            self.sigma.append(np.cov(cluster, rowvar=0))
-        self.pi = np.ones(self.K, dtype="double") / np.array([len(c) for c in clusters])
+            mu.append(np.mean(cluster, axis=0))
+            sigma.append(np.cov(cluster, rowvar=0))
+        pi = np.array([len(c) * 1.0 / len(data) for c in clusters])
+        return mu, sigma, pi
 
     
     def gaussian(self , x , mu , sigma):
@@ -50,11 +54,17 @@ class GMM:
             param: X: A matrix including data samples, num_samples * D
             return: log likelihood of current model 
         """
-
         log_llh = 0.0
         """
             FINISH by YOUSELF
         """
+        n_points = X.shape[0]
+        n_clusters = self.K
+        pdfs = np.zeros((n_points, n_clusters))
+        for i in range(n_clusters):
+            for n in range(n_points):
+                pdfs[n, i] = self.pi[i] * self.gaussian(X[n, :], self.mu[i], self.sigma[i])
+        log_llh = np.sum(np.log(pdfs.sum(axis=1)))
         return log_llh
 
     def em_estimator(self , X):
@@ -68,6 +78,24 @@ class GMM:
         """
             FINISH by YOUSELF
         """
+        n_points = X.shape[0]
+        n_clusters = self.K
+        pdfs = np.zeros((n_points, n_clusters))
+        for i in range(n_clusters):
+            for n in range(n_points):
+                pdfs[n, i] = self.pi[i] * self.gaussian(X[n, :], self.mu[i], self.sigma[i])
+        W = pdfs / pdfs.sum(axis=1).reshape(-1, 1)
+        # E step
+        self.pi = W.sum(axis=0) / W.sum()
+        # M step
+        for i in range(n_clusters):
+            self.mu[i] = np.average(X, axis=0, weights=W[:, i])
+            self.sigma[i] = np.zeros((self.dim, self.dim))
+            for n in range(n_points):
+                left = np.reshape((X[n, :] - self.mu[i]), (self.dim, 1))
+                right = np.reshape((X[n, :] - self.mu[i]), (1, self.dim))
+                self.sigma[i] += W[n, i] * left * right
+            self.sigma[i] = self.sigma[i] / W.sum(axis=0)[i]
         log_llh = self.calc_log_likelihood(X)
 
         return log_llh
