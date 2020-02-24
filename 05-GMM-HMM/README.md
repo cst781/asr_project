@@ -30,7 +30,7 @@ make -C src
 * 运行:
     * ./lab2_p1a.sh
     * ./lab2_p1b.sh
-* 比较结果: 比较你的程序运行结果p1a.chart和参考结果p1a.chart.ref，可以使用vimdiff p1a.chart p1a.chart.ref进行比较，浮点数值差在一定范围内即可。
+* 比较结果: 比较你的程序运行结果p1a.chart和参考结果p1a.chartp.ref，可以使用vimdiff p1a.chart p1a.chart.ref进行比较，浮点数值差在一定范围内即可。
 
 ### p2 
 * 内容：估计模型参数,不使用前向后向算法计算统计量，而是用viterbi解码得到的最优的一条序列来计算统计量，叫做viterbi-EM. 给定align（viterbi解码的最优状态(或边）序列)，原始语音和GMM的初始值，更新GMM参数。完成src/gmm_util.C中两处代码。
